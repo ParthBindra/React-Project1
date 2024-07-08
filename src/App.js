@@ -8,7 +8,7 @@ function App() {
   const[msg,setMsg]=useState(null);
   const[downloadUrl,setDownloadUrl]=useState(null);
 
-  function handleUpload(){
+  function HandleUpload(){
     if(!file){
       console.log("no file selected");
       return;
@@ -45,7 +45,7 @@ function App() {
     });
   }
 
-  function handleDownload(){
+  function HandleDownload(){
     if(!downloadUrl){
       console.log("No file available for download");
       return;
@@ -73,7 +73,7 @@ function App() {
         Here we can upload and download files
       </Typography>
       <input onChange={(e)=>{setFile(e.target.files[0])}} type='file'/>
-      <button onClick={handleUpload}>
+      <button onClick={HandleUpload}>
         Upload
       </button>
 
@@ -83,7 +83,7 @@ function App() {
       {msg && <span>{msg}</span>}
 
       <br/>
-      <button onClick={handleDownload}>
+      <button onClick={HandleDownload}>
         Download
       </button>
     </div>
@@ -91,26 +91,3 @@ function App() {
 }
 
 export default App;
-
-/*axios.post('http://httpbin.org/post',fd,{
-  onUploadProgress:(ProgressEvent)=>{
-
-   setProgress(prevState=>{
-
-    return {
-      ...prevState,pc:ProgressEvent.progress*100
-    }
-   })
-  },Headers:{
-
-    "custom Header":"value"
-  }
-})
-.then(res=>{setMsg("upload Suceesfull");
-  
-  console.log(res.data);
-})
-.catch(err=>{
-  setMsg("upload Files")
-  console.error(err);
-});*/
